@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2 ">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <label for="name">Product name</label>
+    <input class="form-control"
+           id="name"
+           type="text"
+           placeholder="product name ..."
+           formControlName="name">
+<span class="help-block"
+      *ngIf="productForm.get('name').invalid && productForm.get('name').touched">
+  type the name please</span>
+
+    <label for="brand">Product brand</label>
+    <input class="form-control"
+           id="brand"
+           placeholder="product brand ..."
+           type="text"
+           formControlName="brand">
+    <span class="help-block"
+          *ngIf="productForm.get('brand').invalid && productForm.get('brand').touched">
+  type the brand please</span>
+
+
+    <label for="price">Product price</label>
+    <input class="form-control"
+           id="price"
+           type="text"
+           placeholder="product price ..."
+           formControlName="price">
+    <span class="help-block"
+          *ngIf="productForm.get('price').invalid && productForm.get('price').touched">
+  type the price please</span>
+
+    <label for="imgurl">Image</label>
+    <input class="form-control"
+           id="imgurl"
+           type="text"
+           placeholder="product Image ..."
+           formControlName="imgurl">
+    <span class="help-block"
+          *ngIf="productForm.get('imgurl').invalid && productForm.get('imgurl').touched">
+  chose an image</span>
+    <br>
+    <p *ngIf="productForm.get('imgurl').value"> <img [src]="productForm.get('imgurl').value" class="img-rounded img-responsive" style="width: 300px; margin-left: 400px"></p>
+    <br>
+    <label for="description">Description</label>
+    <textarea class="form-control"
+           id="description"
+           type="text"
+           placeholder="product Description ..."
+           formControlName="description"
+            rows="5"></textarea>
+    <span class="help-block"
+          *ngIf="productForm.get('description').invalid && productForm.get('description').touched">
+  you have to describe this product</span>
+
+    <br>
+    <button class="btn btn-primary"
+            style="margin-left: 400px;
+            width: 100px"
+            type="submit"
+            [disabled]="!productForm.valid"
+    >{{productService.editMode === true? 'update': 'save'}}</button>
+  </form>
+    <div class="alert-success"
+         *ngIf="productService.addSucceded"
+         style="width: 400px;
+        font-size: 20px;
+        margin: 20px 10px 20px 100px;
+padding: 20px;
+border-radius: 10px">
+      your product was successfully saved !!!</div>
+  </div>
+
+
+</div>

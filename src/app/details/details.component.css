@@ -1,0 +1,16 @@
+.all {
+  font-size: 17px;
+  border: darkgray 1px solid;
+  border-radius: 6px;
+  height: 570px;
+  padding: 40px;
+  margin-top: 30px;
+}
+span{
+  font-size: 20px;
+}
+.alert-info{
+  background-color: green;
+  border-radius: 6px;
+  color: gainsboro;
+}
